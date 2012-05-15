@@ -30,6 +30,7 @@ html
         $(function () {
           $("#verify").hide();
           $("#nyan").hide();
+          $("#successbar").parent().hide();
           var socket = io.connect()
             , username = $('#username')
             , password = $('#password')

@@ -2,7 +2,8 @@
 var io = require('socket.io'), express = require('express'), util = require('util'), app = express.createServer(), connect = require('express/node_modules/connect'), parseCookie = connect.utils.parseCookie, MemoryStore = connect.middleware.session.MemoryStore, store, TwilioClient = require('twilio').Client, Twiml = require('twilio').Twiml;
 
 var client = new TwilioClient(process.env.account_sid,process.env.auth_token, process.env.twilio_hostname); //Enter your credentials and hostname here
-var phone = client.getPhoneNumber('+18881234567'); //Enter your outgoing phone # here
+var phone = client.getPhoneNumber(process.env.phone_number); //Enter your outgoing phone # here
+
 app.configure(function () {
   app.set('view engine', 'jade');
   app.set('view options', {layout: false});
@@ -16,7 +17,7 @@ app.configure(function () {
 });
 
 app.get('/', function (req, res) {
-  res.render('index', {username: req.session.username, phonenumber: req.session.phonenumber});
+  res.render('index', {username: req.session.username, password: req.session.password, phonenumber: req.session.phonenumber});
 });
 
 app.listen(8080);
