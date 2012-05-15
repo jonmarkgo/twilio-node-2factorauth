@@ -1,24 +1,75 @@
 !!! html
 html
   head
-    title Tying it all together demo
+    title Two-Factor Authentication with Twilio, Node.js, and Socket.io
     script(src='/socket.io/socket.io.js')
     script(src='http://code.jquery.com/jquery-latest.js')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css') 
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css') 
   body
-    if value
-      h2 your session value is #{value}
-    else
-      h2 set your session value!
-    input#input
-    script
-      $(function () {
-        var socket = io.connect()
-          , input = $('#input');
-        input.keypress(function (e) {
-          if (e.which === 13) {
-            socket.emit('set value', input.val());
-            input.val('');
-            $('h2').text('value set, reload page');
-          }
-        }).focus();
-      });
+    div.container
+      h1 Two-Factor Auth Demo
+      div.alert.alert-info#verify
+        h1 Verification Code:
+        br
+        div#code
+        br
+      div.row
+        div.span5
+          img#nyan(src='/bootstrap/poptart1red1.gif')
+          form.well#loginform
+            fieldset
+              legend Login to Access Secrets
+              div.control-group
+                input#username(placeholder='Username')
+                input#password(type='password',placeholder='Password')
+                input#phonenumber(placeholder='+18881234567')
+              div.form-actions
+                input#submit.btn.btn-primary(type='submit',value='Log In')
+      script
+        $(function () {
+          $("#verify").hide();
+          $("#nyan").hide();
+          var socket = io.connect()
+            , username = $('#username')
+            , password = $('#password')
+            , phonenumber = $('#phonenumber')
+            , submit = $('#submit')
+            , loginform = $('#loginform');
+          socket.on('newcode', function (val) {
+            $("#verify").show();
+            $("#verify").removeClass("alert-error");
+            $("#verify").removeClass("alert-success");
+            $("#verify").addClass("alert-info");
+            $("#verify").html('<h1>Verification Code:</h1><br><div id="code"></div><br>');
+            for(var i =0; i < String(val).length; i++)
+            {
+              $("#code").append('<span id="code'+i+'" class="badge" style="font-size:50px;">'+String(val).charAt(i)+'</span>');
+            }
+          });
+          socket.on('wrong code', function (val) {
+            $("#verify").removeClass("alert-info");
+            $("#verify").addClass("alert-error");
+            $("#code" + val).removeClass("badge-info");
+            $("#code" + val).addClass("badge-error");
+            $("#verify h1").html('Incorrect Code, Try Again!');
+          });
+          socket.on('verified', function (val) {
+            $("#verify").removeClass("alert-info");
+            $("#verify").removeClass("alert-error");
+            $("#verify").addClass("alert-success");
+            $("#verify").html('You have successfully logged in!');
+            $("#loginform").hide();
+            $("#nyan").show();
+          });
+          socket.on('correct code', function (val) {
+            $("#code" + val).removeClass("badge-info");
+            $("#code" + val).addClass("badge-success");
+          });
+          loginform.submit(function (e) {
+            e.preventDefault();
+            socket.emit('set username', username.val());
+            socket.emit('set password', password.val());
+            socket.emit('init phone', phonenumber.val());
+          }).focus();
+        });
