@@ -4,6 +4,15 @@ This app demonstrates how to implement responsive two-factor auth with Twilio an
 
 If you are interested in an in-depth tutorial on how to build this functionality, please read my blog post: http://www.twilio.com/blog/2012/04/two-factor-authentication-with-node-js-and-twilio.html
 
+To run, just clone and run the following commands:
+- npm install
+- export account_sid='YOUR_ACCOUNT_SID'
+- export auth_token='YOUR_AUTH_TOKEN'
+- export phone_number='+18881234567'
+- export twilio_hostname='yourdomain.com'
+- node app.js
+- It will be running at http://yourdomain.com:8080/ - you can change the length of the verification code by modifying the 'codelength' variable
+
 # License
 
 Twilio+Node Demo Copyright (c) 2012 Jonathan Gottfried <jonmarkgo@gmail.com>
