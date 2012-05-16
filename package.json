@@ -2,7 +2,7 @@
   "author": "Jonathan Gottfried <jonmarkgo@gmail.com>",
   "name": "twilio-node-2factorauth",
   "description": "Twilio + Node.js Two-factor Auth Demo",
-  "version": "1.0",
+  "version": "1.0.0",
   "homepage": "http://www.twilio.com/blog/2012/04/two-factor-authentication-with-node-js-and-twilio.html",
   "repository": {
     "type": "git",
