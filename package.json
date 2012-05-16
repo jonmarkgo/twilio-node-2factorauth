@@ -13,7 +13,7 @@
       "socket.io": "*"
     , "express": "2.5.9"
     , "jade": "*"
-    , "twilio": "0.3.2"
+    , "twilio": "0.4.0"
   },
   "devDependencies": {},
   "optionalDependencies": {},
