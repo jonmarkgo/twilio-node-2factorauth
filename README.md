@@ -1,23 +1,5 @@
-# _socket.io and Express. Tying it all together. Demo Application_
+# Twilio + node.js Two-factor auth demo
 
-This is a demo application demonstrating how the two popular frameworks socket.io and Express can be effectively used together.
+This app demonstrates how to implement responsive two-factor auth with Twilio and Node.js
 
-Please read my article [socket.io and Express. Tying it all together.](http://www.danielbaulig.de/socket-ioexpress) for details on what is going on.
-
-# Installation
-
-    npm install sioe-demo
-
-# Run
-
-    make run
-
-# License
-
-Copyright (c) 2012 Daniel Baulig <daniel.baulig@gmx.de>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+If you are interested in an in-depth tutorial on how to build this functionality, please read my blog post: http://www.twilio.com/blog/2012/04/two-factor-authentication-with-node-js-and-twilio.html
