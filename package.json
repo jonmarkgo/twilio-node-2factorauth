@@ -1,18 +1,19 @@
 {
-  "author": "Daniel Baulig <daniel.baulig@gmx.de> (http://www.danielbaulig.de)",
-  "name": "sioe-demo",
-  "description": "socket.io and Express. Tying it all together. Demo Application",
-  "version": "0.0.1",
-  "homepage": "http://www.danielbaulig.de/socket-ioexpress/",
+  "author": "Jonathan Gottfried <jonmarkgo@gmail.com>",
+  "name": "twilio-node-2factorauth",
+  "description": "Twilio + Node.js Two-factor Auth Demo",
+  "version": "1.0",
+  "homepage": "http://www.twilio.com/blog/2012/04/two-factor-authentication-with-node-js-and-twilio.html",
   "repository": {
     "type": "git",
-    "url": "git://github.com/DanielBaulig/sioe-demo.git"
+    "url": "git://github.com/jonmarkgo/twilio-node-2factorauth.git"
   },
   "main": "app.js",
   "dependencies": {
       "socket.io": "*"
     , "express": "2.5.9"
     , "jade": "*"
+    , "node-twilio": "0.1.1"
   },
   "devDependencies": {},
   "optionalDependencies": {},
